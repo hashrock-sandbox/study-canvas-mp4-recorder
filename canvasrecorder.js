@@ -40,19 +40,17 @@ let init = (canvas) => {
   //canvas //document.querySelector('canvas');
   const uiDiv = document.createElement('div')
   document.body.appendChild(uiDiv)
-  uiDiv.style.position = 'absolute'
-  uiDiv.style.left = uiDiv.style.top = '10px'
 
 
 
   let stream
 
-  let str_record = '⏺️'
-  let str_play = '▶️'
-  let str_stop = '⏹️'
-  let str_download = '↓'
+  let str_record = 'Record'
+  let str_play = 'Play'
+  let str_stop = 'Stop'
+  let str_download = 'Download'
   let str_open = '+'
-  let str_close = '❎'
+  let str_close = 'Close'
   uiDiv.innerHTML = `
 <div style='zIndex:1000'>
 <button id = 'record'>${str_record}</button>

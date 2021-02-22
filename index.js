@@ -1,10 +1,13 @@
 import CanvasRecorder from "./canvasrecorder.js"
 
-const canv = document.querySelector("#canvas")
+const canvas = document.querySelector("#canvas")
 const ctx = canvas.getContext("2d")
+ctx.fillStyle = "white"
+ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-canv.addEventListener("pointermove", (e) =>{
+ctx.fillStyle = "black"
+canvas.addEventListener("pointermove", (e) =>{
     ctx.fillRect(e.offsetX, e.offsetY, 10, 10)
 })
 
-CanvasRecorder(canv)
+CanvasRecorder(canvas)
