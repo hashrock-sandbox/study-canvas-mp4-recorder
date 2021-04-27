@@ -48,14 +48,12 @@ let init = (canvas) => {
   let str_record = 'Record'
   let str_play = 'Play'
   let str_stop = 'Stop'
-  let str_download = 'Download'
   let str_open = '+'
   let str_close = 'Close'
   uiDiv.innerHTML = `
 <div style='zIndex:1000'>
 <button id = 'record'>${str_record}</button>
 <button id = 'play'>${str_play}</button>
-<button id = 'download'>${str_download}</button>
 <button id = 'close'>${str_close}</button>
 </br>
 <video style='width:640px;height:480px;display:none;' id='video'></video>
@@ -65,12 +63,10 @@ let init = (canvas) => {
 
   const recordButton = document.querySelector('button#record');
   const playButton = document.querySelector('button#play');
-  const downloadButton = document.querySelector('button#download');
   const closeButton = document.querySelector('button#close');
 
   recordButton.onclick = toggleRecording;
   playButton.onclick = play;
-  downloadButton.onclick = download;
   closeButton.onclick = () => { (closeButton.innerText = (video.style.display !== '' ? str_close : str_open)) && (video.style.display = (video.style.display === '' ? 'none' : '')) }
 
   // Start the GL teapot on the canvas
@@ -115,7 +111,6 @@ let init = (canvas) => {
       stopRecording();
       recordButton.textContent = str_record;
       playButton.disabled = false;
-      downloadButton.disabled = false;
       closeButton.innerText = str_close
       video.style.display = ''
     }
@@ -142,7 +137,6 @@ let init = (canvas) => {
     console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
     recordButton.textContent = str_stop;//'Stop Recording';
     playButton.disabled = true;
-    downloadButton.disabled = true;
     mediaRecorder.onstop = handleStop;
     mediaRecorder.ondataavailable = handleDataAvailable;
     mediaRecorder.start(100);
